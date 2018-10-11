@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Coasters</string>
+    <string name="username_hint">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">SignUp</string>
+    <string name="name_registration">Name</string>
+    <string name="email_registration">Email</string>
+    <string name="pas_registration">Password</string>
+    <string name="pas_registration_again">Password again</string>
+    <string name="sign_up_now">Sign up now</string>
+</resources>

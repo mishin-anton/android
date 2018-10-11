@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:hint="@string/name_registration"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/text_view_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_mail"
+        android:background="@drawable/text_view_custom"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="@string/email_registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:background="@drawable/text_view_custom"
+        android:hint="@string/pas_registration"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/et_password_again"
+        android:background="@drawable/text_view_custom"
+        android:hint="@string/pas_registration_again"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_enter"
+        android:text="@string/sign_up_now"
+        android:textSize="18sp"
+        android:textColor="@color/colorTextWhite"
+        android:background="@drawable/buttons_main"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
