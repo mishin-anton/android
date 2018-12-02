@@ -9,4 +9,11 @@
     <string name="pas_registration">Password</string>
     <string name="pas_registration_again">Password again</string>
     <string name="sign_up_now">Sign up now</string>
+    <string name="name_text">Name</string>
+    <string name="shape_text">Shape</string>
+    <string name="country_text">Country</string>
+    <string name="city_text">City</string>
+    <string name="front_side_text">Front side</string>
+    <string name="back_side_text">Back side</string>
+    <string name="save_text">save</string>
 </resources>

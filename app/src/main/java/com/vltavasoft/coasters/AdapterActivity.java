@@ -1,13 +1,14 @@
-package com.vltavasoft.coasters.login;
+package com.vltavasoft.coasters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.vltavasoft.coasters.R;
 
-public abstract class CreaterFragmentActivity extends AppCompatActivity {
+public abstract class AdapterActivity extends AppCompatActivity {
 
     protected abstract Fragment getFragment();
 
@@ -26,11 +27,12 @@ public abstract class CreaterFragmentActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager.getBackStackEntryCount() == 1) {
-            finish();
-        }else {
-            fragmentManager.popBackStack();
-        }
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        if (fragmentManager.getBackStackEntryCount() == 1) {
+//            Log.d("STACK", "Value ");
+//            finish();
+//        }else {
+//            fragmentManager.popBackStack();
+//        }
     }
 }

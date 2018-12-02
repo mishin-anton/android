@@ -14,6 +14,8 @@ import com.vltavasoft.coasters.R;
 
 public class AuthFragment extends Fragment {
 
+    public static int subscreensOnTheStack = 0;
+
     private EditText mUserName;
     private EditText mPassword;
     private Button mLogIn;
@@ -31,7 +33,7 @@ public class AuthFragment extends Fragment {
         @Override
         public void onClick(View v) {
             boolean isLogin = false;
-            // ЗАГЛУШКА ЕСЛИ EMAIL валидный и пароль валидный
+            // ЗАГЛУШКА ЕСЛИ EMAIL валидный и пароль валидный открыть список
             if ((mLogIn.getText().toString() == "admin") &&
                 (mSignUp.getText().toString() == "1")){
                 isLogin = true;
@@ -47,6 +49,7 @@ public class AuthFragment extends Fragment {
                     .replace(R.id.fr_start_container, RegistrationFragment.newInstanse())
                     .addToBackStack(RegistrationFragment.class.getName())
                     .commit();
+            subscreensOnTheStack++;
         }
     };
 
@@ -60,8 +63,9 @@ public class AuthFragment extends Fragment {
         mSignUp = v.findViewById(R.id.btn_sign_up);
 
         mLogIn.setOnClickListener(mOnLogInClickListener);
-        mPassword.setOnClickListener(mSignUpClickListener);
+        mSignUp.setOnClickListener(mSignUpClickListener);
 
         return v;
     }
+
 }

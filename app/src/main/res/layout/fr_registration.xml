@@ -54,7 +54,7 @@
         android:id="@+id/btn_enter"
         android:text="@string/sign_up_now"
         android:textSize="18sp"
-        android:textColor="@color/colorTextWhite"
+        android:textColor="@color/colorTextBlack"
         android:background="@drawable/buttons_main"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="8dp"
