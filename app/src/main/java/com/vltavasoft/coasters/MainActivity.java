@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
-import com.vltavasoft.coasters.base.AddNewFragment;
 import com.vltavasoft.coasters.base.BaseFragment;
 
 public class MainActivity extends AdapterActivity {

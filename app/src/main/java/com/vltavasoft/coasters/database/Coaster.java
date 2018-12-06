@@ -7,32 +7,31 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Coaster {
 
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
     @ColumnInfo(name = "id")
-    private int mId;
+    protected int mId;
 
     @ColumnInfo(name = "name")
-    private String name;
+    protected String mName;
 
     @ColumnInfo(name = "shape")
-    private String shape;
+    protected String mShape;
 
     @ColumnInfo(name = "country")
-    private String mCountry;
+    protected String mCountry;
 
     @ColumnInfo(name = "city")
-    private String mCity;
+    protected String mCity;
 
     @ColumnInfo(name = "imgFront")
-    private String mImgFrontUrl;
+    protected String mImgFrontUrl;
 
     @ColumnInfo(name = "imgBack")
-    private String mImgBackUrl;
+    protected String mImgBackUrl;
 
-    public Coaster(int id, String name, String shape, String country, String city, String imgFrontUrl, String imgBackUrl) {
-        this.mId = id;
-        this.name = name;
-        this.shape = shape;
+    public Coaster(String name, String shape, String country, String city, String imgFrontUrl, String imgBackUrl) {
+        this.mName = name;
+        this.mShape = shape;
         this.mCountry = country;
         this.mCity = city;
         this.mImgFrontUrl = imgFrontUrl;
@@ -48,19 +47,19 @@ public class Coaster {
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 
     public String getmShape() {
-        return shape;
+        return mShape;
     }
 
     public void setmShape(String mShape) {
-        this.shape = mShape;
+        this.mShape = mShape;
     }
 
     public String getmCountry() {
@@ -93,5 +92,10 @@ public class Coaster {
 
     public void setmImgBackUrl(String mImgBackUrl) {
         this.mImgBackUrl = mImgBackUrl;
+    }
+
+    @Override
+    public String toString() {
+        return mId + " " + mName + mCity + mShape + mImgBackUrl + mImgFrontUrl;
     }
 }

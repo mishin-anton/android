@@ -1,4 +1,4 @@
-package com.vltavasoft.coasters.base;
+package com.vltavasoft.coasters.Helper;
 
 import android.content.Context;
 import android.graphics.Bitmap;

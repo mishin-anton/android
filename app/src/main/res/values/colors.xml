@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E0E0E0</color>
-    <color name="colorPrimaryDark">#BDBDBD</color>
-    <color name="colorAccent">#BDBDBD</color>
-    <color name="colorBackground">#F5F5F5</color>
+    <color name="color_primary">#E0E0E0</color>
+    <color name="color_primary_dark">#BDBDBD</color>
+    <color name="color_accent">#BDBDBD</color>
+    <color name="color_background">#F5F5F5</color>
     <color name="colorBackgroundGrey30">#E0E0E0</color>
     <color name="colorBackgroundGrey40">#BDBDBD</color>
-    <color name="colorButton">#006064</color>
     <color name="colorTextBlack">#212121</color>
-    <color name="colorAddButton">#0277BD</color>
+    <color name="colorAddButton">#00C853</color>
+    <color name="colorDeleteColor">#DD2C00</color>
 </resources>

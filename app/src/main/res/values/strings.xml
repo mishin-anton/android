@@ -16,4 +16,5 @@
     <string name="front_side_text">Front side</string>
     <string name="back_side_text">Back side</string>
     <string name="save_text">save</string>
+    <string name="delete">delete</string>
 </resources>
