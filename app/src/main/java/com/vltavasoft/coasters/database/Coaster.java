@@ -9,7 +9,7 @@ public class Coaster {
 
     @PrimaryKey (autoGenerate = true)
     @ColumnInfo(name = "id")
-    protected int mId;
+    public int mId;
 
     @ColumnInfo(name = "name")
     protected String mName;
@@ -29,20 +29,21 @@ public class Coaster {
     @ColumnInfo(name = "imgBack")
     protected String mImgBackUrl;
 
-    public Coaster(String name, String shape, String country, String city, String imgFrontUrl, String imgBackUrl) {
-        this.mName = name;
-        this.mShape = shape;
-        this.mCountry = country;
-        this.mCity = city;
-        this.mImgFrontUrl = imgFrontUrl;
-        this.mImgBackUrl = imgBackUrl;
+    public Coaster(int mId, String mName, String mShape, String mCountry, String mCity, String mImgFrontUrl, String mImgBackUrl) {
+        this.mId = mId;
+        this.mName = mName;
+        this.mShape = mShape;
+        this.mCountry = mCountry;
+        this.mCity = mCity;
+        this.mImgFrontUrl = mImgFrontUrl;
+        this.mImgBackUrl = mImgBackUrl;
     }
 
-    public int getmId() {
+    public int getId() {
         return mId;
     }
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 
@@ -50,35 +51,35 @@ public class Coaster {
         return mName;
     }
 
-    public void setName(String name) {
-        this.mName = name;
+    public void setName(String mName) {
+        this.mName = mName;
     }
 
-    public String getmShape() {
+    public String getShape() {
         return mShape;
     }
 
-    public void setmShape(String mShape) {
+    public void setShape(String mShape) {
         this.mShape = mShape;
     }
 
-    public String getmCountry() {
+    public String getCountry() {
         return mCountry;
     }
 
-    public void setmCountry(String mCountry) {
+    public void setCountry(String mCountry) {
         this.mCountry = mCountry;
     }
 
-    public String getmCity() {
+    public String getCity() {
         return mCity;
     }
 
-    public void setmCity(String mCity) {
+    public void setCity(String mCity) {
         this.mCity = mCity;
     }
 
-    public String getmImgFrontUrl() {
+    public String getImgFrontUrl() {
         return mImgFrontUrl;
     }
 
@@ -86,11 +87,11 @@ public class Coaster {
         this.mImgFrontUrl = mImgFrontUrl;
     }
 
-    public String getmImgBackUrl() {
+    public String getImgBackUrl() {
         return mImgBackUrl;
     }
 
-    public void setmImgBackUrl(String mImgBackUrl) {
+    public void setImgBackUrl(String mImgBackUrl) {
         this.mImgBackUrl = mImgBackUrl;
     }
 

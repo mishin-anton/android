@@ -1,5 +1,6 @@
 package com.vltavasoft.coasters.base;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,7 +19,7 @@ import com.vltavasoft.coasters.database.DataHelper;
 
 public class DescriptionFragment extends Fragment {
 
-    public static DescriptionFragment newInstance(){
+    public static DescriptionFragment newInstance() {
         return new DescriptionFragment();
     }
 
@@ -44,7 +45,7 @@ public class DescriptionFragment extends Fragment {
         mCountry = v.findViewById(R.id.tv_country);
         mCity = v.findViewById(R.id.tv_city);
         mFrontSide = v.findViewById(R.id.iv_get_front);
-        mBackSide = v.findViewById(R.id.iv_back_side);
+        mBackSide = v.findViewById(R.id.iv_get_back);
         mQuit = v.findViewById(R.id.btn_quit);
         mDelete = v.findViewById(R.id.btn_delete);
 
@@ -55,28 +56,30 @@ public class DescriptionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Log.d("TAGNAME", "-> " + coaster.getImgBackUrl());
+
         mNameCoaster.setText(coaster.getName());
-        mShape.setText(coaster.getmShape());
-        mCountry.setText(coaster.getmCountry());
-        mCity.setText(coaster.getmCity());
+        mShape.setText(coaster.getShape());
+        mCountry.setText(coaster.getCountry());
+        mCity.setText(coaster.getCity());
+        mFrontSide.setImageURI(Uri.parse(coaster.getImgFrontUrl()));
+        mBackSide.setImageURI(Uri.parse(coaster.getImgBackUrl()));
+
 
         mDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Log.d("CLICK", "ID " + coaster.getmId());
-
-                mDataHelper.deleteCoasterById(coaster.getmId());
+                mDataHelper.deleteCoasterById(coaster.getId());
 
                 getFragmentManager()
                         .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
-                        .addToBackStack(BaseFragment.class.getName())
                         .commit();
             }
         });
     }
 
-    public void setCoaster (Coaster coaster) {
+    public void setCoaster(Coaster coaster) {
         this.coaster = coaster;
     }
 }

@@ -1,4 +1,5 @@
 package com.vltavasoft.coasters.base;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -19,15 +20,16 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind (Coaster coaster) {
-        mImageThumbs.setImageResource(R.drawable.coaster);
+        mImageThumbs.setImageURI(Uri.parse(coaster.getImgFrontUrl()));
 
         currentCoaster = new Coaster(
+                coaster.getId(),
                 coaster.getName(),
-                coaster.getmShape(),
-                coaster.getmCountry(),
-                coaster.getmCity(),
-                coaster.getmImgFrontUrl(),
-                coaster.getmImgBackUrl());
+                coaster.getShape(),
+                coaster.getCountry(),
+                coaster.getCity(),
+                coaster.getImgFrontUrl(),
+                coaster.getImgBackUrl());
     }
 
     public void setListener (final CoastersAdapter.OnItemClickListener listener) {
@@ -41,7 +43,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 activity.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fr_start_container, descriptionFragment)
-                        .addToBackStack(DescriptionFragment.class.getName())
+                        //.addToBackStack(null)
                         .commit();
             }
         });

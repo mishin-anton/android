@@ -24,7 +24,7 @@ public interface CoasterDAO {
     @Delete
     void deleteCoaster(Coaster coaster);
 
-    @Query("delete from coaster where name = :id")
+    @Query("delete from coaster where id = :id")
     void deleteCoasterById (int id);
 
     @Query("select * from coaster where id = :coasterId")

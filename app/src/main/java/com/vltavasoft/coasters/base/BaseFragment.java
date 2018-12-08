@@ -52,8 +52,8 @@ public class BaseFragment extends Fragment{
             public void onClick(View v) {
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.fr_start_container, AddNewCoaster.newInstance())
-                        .addToBackStack(AddNewCoaster.class.getName())
+                        .replace(R.id.fr_start_container, AddNewCoasterFragment.newInstance())
+                        //.addToBackStack(AddNewCoasterFragment.class.getName())
                         .commit();
             }
         });

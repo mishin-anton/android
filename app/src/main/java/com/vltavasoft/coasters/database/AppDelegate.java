@@ -14,7 +14,7 @@ public class AppDelegate extends Application {
         instance = this;
         mCoasterDatabase = Room.databaseBuilder(this, CoasterDatabase.class,
                 "coaster_database")
-                .allowMainThreadQueries() //выключить дальше и перейти в параллельный поток
+                .allowMainThreadQueries() //в main потоке
                 .build();
     }
 

@@ -27,12 +27,5 @@ public abstract class AdapterActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        if (fragmentManager.getBackStackEntryCount() == 1) {
-//            Log.d("STACK", "Value ");
-//            finish();
-//        }else {
-//            fragmentManager.popBackStack();
-//        }
     }
 }

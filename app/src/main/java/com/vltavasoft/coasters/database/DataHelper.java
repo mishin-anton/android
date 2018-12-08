@@ -7,24 +7,32 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataHelper{
+public class DataHelper {
 
     private CoasterDatabase db;
     private CoasterDAO mCoasterDAO;
 
     public DataHelper() {
-        db = AppDelegate.getInstance().getDatabase();
-        mCoasterDAO = db.getCoasterDAO();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                db = AppDelegate.getInstance().getDatabase();
+                mCoasterDAO = db.getCoasterDAO();
+            }
+        }).run();
+
     }
 
-    public List<Coaster> getAllCoasters(){
+    public List<Coaster> getAllCoasters() {
+
         List<Coaster> coasters = new ArrayList<>();
         coasters = mCoasterDAO.getCoasters();
 
         return coasters;
     }
 
-    public void insertNewCoaster(Coaster coaster){
+    public void insertNewCoaster(final Coaster coaster) {
+
         mCoasterDAO.insertCoaster(coaster);
     }
 
@@ -33,6 +41,7 @@ public class DataHelper{
     }
 
     public void deleteCoasterById(int id) {
+
         mCoasterDAO.deleteCoasterById(id);
     }
 

@@ -141,7 +141,8 @@
             android:layout_height="150dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            android:background="@color/colorBackgroundGrey40" />
+            android:background="@color/colorBackgroundGrey40"
+            android:scaleType="centerCrop"/>
 
         <ImageView
             android:id="@+id/iv_get_back"
@@ -150,7 +151,8 @@
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
-            android:background="@color/colorBackgroundGrey40" />
+            android:background="@color/colorBackgroundGrey40"
+            android:scaleType="centerCrop"/>
 
     </LinearLayout>
 
