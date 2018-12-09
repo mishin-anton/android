@@ -43,7 +43,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 activity.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fr_start_container, descriptionFragment)
-                        //.addToBackStack(null)
                         .commit();
             }
         });

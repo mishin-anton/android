@@ -7,11 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vltavasoft.coasters.R;
 import com.vltavasoft.coasters.database.Coaster;
@@ -38,6 +42,7 @@ public class DescriptionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fr_description, container, false);
+
         getActivity().setTitle("About");
 
         mNameCoaster = v.findViewById(R.id.tv_name);
@@ -71,7 +76,18 @@ public class DescriptionFragment extends Fragment {
             public void onClick(View v) {
 
                 mDataHelper.deleteCoasterById(coaster.getId());
+                Toast.makeText(getActivity().getApplicationContext(),
+                        "Deleted " + mNameCoaster.getText(), Toast.LENGTH_SHORT).show();
 
+                getFragmentManager()
+                        .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
+                        .commit();
+            }
+        });
+
+        mQuit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 getFragmentManager()
                         .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
                         .commit();
@@ -82,4 +98,5 @@ public class DescriptionFragment extends Fragment {
     public void setCoaster(Coaster coaster) {
         this.coaster = coaster;
     }
+
 }

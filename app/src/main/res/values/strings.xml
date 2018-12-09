@@ -17,4 +17,12 @@
     <string name="back_side_text">Back side</string>
     <string name="save_text">save</string>
     <string name="delete">delete</string>
+    <string name="close_btn">close</string>
+    <string name="delete_btn">delete</string>
+
+    <string-array name="chapelist">
+        <item>Circle</item>
+        <item>Round</item>
+        <item>Oval</item>
+    </string-array>
 </resources>

@@ -2,21 +2,26 @@ package com.vltavasoft.coasters;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.ImageFormat;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.widget.ImageView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.vltavasoft.coasters.base.BaseFragment;
 
 public class MainActivity extends AdapterActivity {
+
     static final int REQUEST_PERMISSION_CAMERA = 1001;
     static final int REQUEST_PERMISSION_WRITE_EXTERNAL_STORAGE = 1002;
     int permissionCount = 0;
+
+    public Toolbar toolbar;
 
     @Override
     protected Fragment getFragment() {
@@ -74,4 +79,5 @@ public class MainActivity extends AdapterActivity {
                 .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
                 .commit();
     }
+
 }

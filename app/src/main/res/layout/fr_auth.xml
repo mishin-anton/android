@@ -16,7 +16,7 @@
         android:text="COASTERS"
         android:gravity="center"
         android:textSize="30sp"
-        android:textColor="@color/colorTextBlack"
+        android:textColor="@color/colorTextLight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -50,7 +50,7 @@
         <Button
             android:id="@+id/btn_logIn"
             android:background="@drawable/buttons_main"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/colorTextLight"
             android:textSize="18sp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="8dp"
@@ -61,7 +61,7 @@
 
         <Button
             android:id="@+id/btn_sign_up"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/colorTextLight"
             android:background="@color/color_background"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="8dp"

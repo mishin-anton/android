@@ -2,5 +2,7 @@
 <resources>
     <dimen name="image_size">180dp</dimen>
     <dimen name="header_in_form">15sp</dimen>
-    <dimen name="margin_in_form">8dp</dimen>
+    <dimen name="margin_in_form">10dp</dimen>
+    <dimen name="li_margin">8dp</dimen>
+    <dimen name="info_text_size">16sp</dimen>
 </resources>

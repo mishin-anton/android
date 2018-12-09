@@ -1,5 +1,6 @@
 package com.vltavasoft.coasters.base;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +16,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.vltavasoft.coasters.R;
 import com.vltavasoft.coasters.Utils.BItmapScaler;
@@ -29,7 +33,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -38,11 +44,11 @@ public class AddNewCoasterFragment extends Fragment {
     public static final int REQUEST_FRONT_IMAGE_CAMERA = 20001;
     public static final int REQUEST_BACK_IMAGE_CAMERA = 20002;
 
-    private String mFrontImagePath; // path for use with ACTION_VIEW intents
-    private String mBackImagePath;
+    private String mFrontImagePath = null; // path for use with ACTION_VIEW intents
+    private String mBackImagePath = null;
 
     private EditText mNameCoaster;
-    private EditText mShape;
+    private Spinner mShape;
     private EditText mCountry;
     private EditText mCity;
     private ImageView mFrontSide;
@@ -68,6 +74,14 @@ public class AddNewCoasterFragment extends Fragment {
         mBackSide = v.findViewById(R.id.iv_back_side);
         mSave = v.findViewById(R.id.btn_save);
 
+        List<String> listForSpinner = new ArrayList<String>();
+        listForSpinner.add("Circle");
+        listForSpinner.add("Round");
+        listForSpinner.add("Oval");
+        ArrayAdapter spinnerAdapter = new ArrayAdapter(getActivity().getApplicationContext(),
+                R.layout.spinner_item, listForSpinner);
+        mShape.setAdapter(spinnerAdapter);
+
         mFrontSide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,22 +100,29 @@ public class AddNewCoasterFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Log.d("TAG", mFrontImagePath);
-                Log.d("TAG2", mBackImagePath);
+                if (!mNameCoaster.getText().toString().equals("") &&
+                        !mCountry.getText().toString().equals("") &&
+                        !mCity.getText().toString().equals("") &&
+                        mFrontSide.getDrawable() != null &&
+                        mBackSide.getDrawable() != null) {
+                    Toast.makeText(getActivity().getApplicationContext(), "New coaster added", Toast.LENGTH_SHORT).show();
 
-                Coaster coaster = new Coaster
-                        (0, mNameCoaster.getText().toString(),
-                                mShape.getText().toString(),
-                                mCountry.getText().toString(),
-                                mCity.getText().toString(),
-                                mFrontImagePath,
-                                mBackImagePath);
+                    Coaster coaster = new Coaster
+                            (0, mNameCoaster.getText().toString(),
+                                    mShape.getSelectedItem().toString(),
+                                    mCountry.getText().toString(),
+                                    mCity.getText().toString(),
+                                    mFrontImagePath,
+                                    mBackImagePath);
 
-                mDataHelper.insertNewCoaster(coaster);
+                    mDataHelper.insertNewCoaster(coaster);
 
-                getFragmentManager()
-                        .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
-                        .commit();
+                    getFragmentManager()
+                            .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())
+                            .commit();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please fill all fields and 2 pictures", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

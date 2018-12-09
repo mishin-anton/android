@@ -30,4 +30,7 @@ public interface CoasterDAO {
     @Query("select * from coaster where id = :coasterId")
     Coaster getCoasterById(int coasterId);
 
+    @Query("select * from coaster where name = :nameSearch")
+    List<Coaster> getCoastersByName(String nameSearch);
+
 }

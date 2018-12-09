@@ -1,10 +1,13 @@
 package com.vltavasoft.coasters.base;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.vltavasoft.coasters.R;
 import com.vltavasoft.coasters.database.Coaster;
@@ -24,6 +27,9 @@ public class CoastersAdapter extends RecyclerView.Adapter<ViewHolder> {
         mData = mDataHelper.getAllCoasters();
     }
 
+    public List<Coaster> getDatafromAdapter() {
+        return mData;
+    }
 
     @NonNull
     @Override
@@ -43,6 +49,7 @@ public class CoastersAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public int getItemCount() {
         //return mCursor != null ? mCursor.getCount() : 0;
+
         return mData.size();
     }
 

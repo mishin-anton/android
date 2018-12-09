@@ -3,15 +3,15 @@
     android:id="@+id/fr_add_new"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="@color/color_background_recycler"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_in_form"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -20,21 +20,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/name_text"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -43,21 +46,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/shape_text"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
 
         <TextView
             android:id="@+id/tv_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -66,20 +71,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/country_text"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
 
         <TextView
             android:id="@+id/tv_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_in_form"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -88,14 +96,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/city_text"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
 
         <TextView
             android:id="@+id/tv_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/info_text_size" />
     </LinearLayout>
 
     <LinearLayout
@@ -104,6 +114,7 @@
         android:layout_margin="@dimen/margin_in_form"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
@@ -113,8 +124,8 @@
             android:layout_weight="1"
             android:text="@string/front_side_text"
             android:textAlignment="center"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextForShape"
+            android:textSize="@dimen/info_text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -122,16 +133,16 @@
             android:layout_weight="1"
             android:text="@string/back_side_text"
             android:textAlignment="center"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/header_in_form" />
+            android:textColor="@color/colorTextForShape"
+            android:textSize="@dimen/info_text_size" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
@@ -142,7 +153,7 @@
             android:layout_marginRight="4dp"
             android:layout_weight="1"
             android:background="@color/colorBackgroundGrey40"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
         <ImageView
             android:id="@+id/iv_get_back"
@@ -152,37 +163,39 @@
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@color/colorBackgroundGrey40"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
         <Button
             android:id="@+id/btn_quit"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            android:background="@color/colorAddButton"
-            android:text="close"
-            android:textSize="@dimen/header_in_form" />
+            android:background="@color/color_add_button"
+            android:text="@string/close_btn" />
 
         <Button
             android:id="@+id/btn_delete"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_weight="2"
-            android:background="@color/colorDeleteColor"
-            android:text="@string/delete"
-            android:textSize="@dimen/header_in_form" />
+            android:background="@color/color_delete_color"
+            android:text="@string/delete_btn" />
     </LinearLayout>
 
 

@@ -6,14 +6,26 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import com.vltavasoft.coasters.R;
 
-public class BaseFragment extends Fragment{
+import com.vltavasoft.coasters.R;
+import com.vltavasoft.coasters.database.Coaster;
+import com.vltavasoft.coasters.database.DataHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BaseFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private RecyclerView mRecycler;
     private FloatingActionButton mBtnAdd;
@@ -24,6 +36,12 @@ public class BaseFragment extends Fragment{
         BaseFragment fragment = new BaseFragment();
 
         return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -53,7 +71,6 @@ public class BaseFragment extends Fragment{
                 getFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fr_start_container, AddNewCoasterFragment.newInstance())
-                        //.addToBackStack(AddNewCoasterFragment.class.getName())
                         .commit();
             }
         });
@@ -65,11 +82,54 @@ public class BaseFragment extends Fragment{
         mRecycler.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mRecycler.setAdapter(mCoasterAdapter);
         mCoasterAdapter.setListener(mListener);
+
+        mRecycler.addItemDecoration(new RecyclerDecorator(10, 3));
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        List<Coaster> list = mCoasterAdapter.getDatafromAdapter();
+        list = filter(list, query);
+
+
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+
+        return false;
+    }
+
+    private static List<Coaster> filter(List<Coaster> coasters, String query) {
+        final String lowerCaseQuery = query.toLowerCase();
+
+        final List<Coaster> filteredModelList = new ArrayList<>();
+
+        for (Coaster coaster : coasters) {
+            final String name = coaster.getName().toLowerCase();
+
+            if (name.contains(lowerCaseQuery)) {
+                filteredModelList.add(coaster);
+            }
+        }
+        return filteredModelList;
+    }
+
 
     @Override
     public void onDetach() {
         mListener = null;
         super.onDetach();
     }
+
 }
