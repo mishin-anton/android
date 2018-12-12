@@ -77,7 +77,7 @@ public class DescriptionFragment extends Fragment {
 
                 mDataHelper.deleteCoasterById(coaster.getId());
                 Toast.makeText(getActivity().getApplicationContext(),
-                        "Deleted " + mNameCoaster.getText(), Toast.LENGTH_SHORT).show();
+                        mNameCoaster.getText() + " has been deleted", Toast.LENGTH_SHORT).show();
 
                 getFragmentManager()
                         .beginTransaction().replace(R.id.fr_start_container, BaseFragment.newInstance())

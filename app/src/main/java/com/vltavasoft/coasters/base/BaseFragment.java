@@ -88,18 +88,15 @@ public class BaseFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        getActivity().getMenuInflater().inflate(R.menu.menu, menu);
+        //getActivity().getMenuInflater().inflate(R.menu.menu, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.search);
+        /*MenuItem searchItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(this);
+        searchView.setOnQueryTextListener(this);*/
     }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        List<Coaster> list = mCoasterAdapter.getDatafromAdapter();
-        list = filter(list, query);
-
 
         return false;
     }

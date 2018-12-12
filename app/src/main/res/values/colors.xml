@@ -13,6 +13,6 @@
     <color name="colorTextForShape">#B0BEC5</color>
     <color name="color_add_button">#00897B</color>
     <color name="color_delete_color">#DD2C00</color>
-    <color name="color_FAB_color">#00E676</color>
+    <color name="color_FAB_color">#FBC02D</color>
     <color name="color_background_recycler">#455A64</color>
 </resources>
