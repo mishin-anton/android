@@ -1,6 +1,7 @@
 package com.vltavasoft.coasters.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,7 +18,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
+import com.vltavasoft.coasters.Billing.InAppBillingResources;
+import com.vltavasoft.coasters.MainActivity;
 import com.vltavasoft.coasters.R;
 import com.vltavasoft.coasters.database.Coaster;
 import com.vltavasoft.coasters.database.DataHelper;
@@ -25,7 +31,10 @@ import com.vltavasoft.coasters.database.DataHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseFragment extends Fragment implements SearchView.OnQueryTextListener {
+public class BaseFragment extends Fragment implements SearchView.OnQueryTextListener,
+        BillingProcessor.IBillingHandler {
+
+    BillingProcessor bp;
 
     private RecyclerView mRecycler;
     private FloatingActionButton mBtnAdd;
@@ -40,7 +49,6 @@ public class BaseFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -50,6 +58,8 @@ public class BaseFragment extends Fragment implements SearchView.OnQueryTextList
         if (context instanceof CoastersAdapter.OnItemClickListener) {
             mListener = (CoastersAdapter.OnItemClickListener) context;
         }
+
+        bp = new BillingProcessor(context, null, this);
     }
 
     @Nullable
@@ -64,6 +74,10 @@ public class BaseFragment extends Fragment implements SearchView.OnQueryTextList
         mBtnAdd = view.findViewById(R.id.btn_add);
 
         getActivity().setTitle(R.string.app_name);
+
+        if (mCoasterAdapter.getItemCount() >= 2) {
+            bp.purchase(getActivity(), InAppBillingResources.getSkuDisableRecycler());
+        }
 
         mBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,4 +143,31 @@ public class BaseFragment extends Fragment implements SearchView.OnQueryTextList
         super.onDetach();
     }
 
+    @Override
+    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+        Toast.makeText(getActivity().getApplicationContext(), "Purchesed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPurchaseHistoryRestored() {
+
+    }
+
+    @Override
+    public void onBillingError(int errorCode, @Nullable Throwable error) {
+
+    }
+
+    @Override
+    public void onBillingInitialized() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        if (bp != null) {
+            bp.release();
+        }
+        super.onDestroy();
+    }
 }
