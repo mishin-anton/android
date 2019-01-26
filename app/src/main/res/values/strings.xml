@@ -19,10 +19,11 @@
     <string name="delete">delete</string>
     <string name="close_btn">close</string>
     <string name="delete_btn">delete</string>
+    <string name="ans_restart">RESTART</string>
 
     <string-array name="chapelist">
         <item>Circle</item>
-        <item>Round</item>
+        <item>Square</item>
         <item>Oval</item>
     </string-array>
 </resources>

@@ -27,5 +27,16 @@ public abstract class AdapterActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        // TODO Оставить реализацию бэкстека при релизе, удалить в MainActivity
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
+
+        }
+
+
     }
 }

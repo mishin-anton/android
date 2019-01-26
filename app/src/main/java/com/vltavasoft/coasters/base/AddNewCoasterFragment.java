@@ -1,6 +1,5 @@
 package com.vltavasoft.coasters.base;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +74,7 @@ public class AddNewCoasterFragment extends Fragment {
 
         List<String> listForSpinner = new ArrayList<String>();
         listForSpinner.add("Circle");
-        listForSpinner.add("Round");
+        listForSpinner.add("Square");
         listForSpinner.add("Oval");
         ArrayAdapter spinnerAdapter = new ArrayAdapter(getActivity().getApplicationContext(),
                 R.layout.spinner_item, listForSpinner);

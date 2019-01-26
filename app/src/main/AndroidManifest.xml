@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vltavasoft.coasters">
 
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.vending.BILLING"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".database.AppDelegate"
@@ -32,6 +30,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.SEARCH"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

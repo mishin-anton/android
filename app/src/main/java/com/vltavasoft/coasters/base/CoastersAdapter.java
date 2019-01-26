@@ -1,17 +1,13 @@
 package com.vltavasoft.coasters.base;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.vltavasoft.coasters.R;
 import com.vltavasoft.coasters.database.Coaster;
-import com.vltavasoft.coasters.database.DataHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +15,8 @@ import java.util.List;
 public class CoastersAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Coaster> mData;
+    private List<Coaster> mCopyList;
     private OnItemClickListener mListener;
-    private DataHelper mDataHelper = new DataHelper();
-
-    public CoastersAdapter() {
-        mData = new ArrayList<>();
-        mData = mDataHelper.getAllCoasters();
-    }
-
-    public List<Coaster> getDatafromAdapter() {
-        return mData;
-    }
 
     @NonNull
     @Override
@@ -46,9 +33,14 @@ public class CoastersAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.setListener(mListener);
     }
 
+    public void addData(List<Coaster> coasters) {
+        mData = coasters;
+        mCopyList = new ArrayList<Coaster>();
+        mCopyList.addAll(mData);
+    }
+
     @Override
     public int getItemCount() {
-        //return mCursor != null ? mCursor.getCount() : 0;
 
         return mData.size();
     }
@@ -59,5 +51,24 @@ public class CoastersAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public interface OnItemClickListener {
         void onItemClick(String id);
+    }
+
+    public void filter(String queryText) {
+        mData.clear();
+
+        if (queryText.isEmpty()) {
+            mData.addAll(mCopyList);
+        } else {
+
+            for (Coaster name : mCopyList) {
+                if (name.getName().toString().toLowerCase().contains(queryText.toLowerCase()) ||
+                        name.getCity().toString().toLowerCase().contains(queryText.toLowerCase())) {
+                    mData.add(name);
+                }
+            }
+
+        }
+
+        notifyDataSetChanged();
     }
 }
